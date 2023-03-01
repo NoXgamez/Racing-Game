@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class PlayerVisual : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
-        
-    }
+        GameObject foundObject = GameObject.FindGameObjectWithTag("GameController");
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(foundObject != null)
+        {
+            GameManager manager = foundObject.GetComponent<GameManager>();
+            SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+
+            renderer.sprite = manager.selectedCar;
+        }
     }
 }
